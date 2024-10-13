@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from .constants import ACCOUNT_TYPE, GENDER_TYPE 
 
 # Create your models here.
-class userBankAccount(models.Model):
+class UserBankAccount(models.Model):
     user = models.OneToOneField(User, related_name = 'account', on_delete = models.CASCADE)
     account_no = models.IntegerField(unique=True) # account no duijon user er kokhono same hobe na
     account_type = models.CharField(max_length = 10, choices = ACCOUNT_TYPE)
@@ -18,7 +18,7 @@ class userBankAccount(models.Model):
         return str(self.account_no)
     
     
-class userAddress(models.Model):
+class UserAddress(models.Model):
     user = models.OneToOneField(User, related_name = 'address', on_delete = models.CASCADE)
     street_address = models.CharField(max_length = 100)
     city = models.CharField(max_length = 100)
